@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Logout
+    </title>
+</head>
+<body style="height: 100vh; display: flex; flex-direction: column; gap: 20px; justify-content: center; align-items: center">
+    {% if user %}
+        <div style="font-size: 30px;">Hello {{user}}, Welcome to Our page</div>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" style="padding: 20px 30px; font-size: 20px; border-radius: 5px; border: 1px solid red; background: red; color: white">Logout</button>
+        </form>
+    {% else %}
+        <div style="font-size: 30px;">Add User First to access the logout page</div>
+        <a href="{% url 'emp_form' %}">
+            <button type="submit" style="padding: 20px 30px; font-size: 20px; border-radius: 5px; border: 1px solid red; background: blue; color: white">Add User</button>
+
+        </a>
+    {% endif %}
+
+</body>
+</html>

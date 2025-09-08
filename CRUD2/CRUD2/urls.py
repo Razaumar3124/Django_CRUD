@@ -24,4 +24,6 @@ urlpatterns = [
     path('form/', views.emp_form, name='emp_form'),
     path('update/<int:pk>', views.emp_update, name='emp_update'),
     path('delete/<int:pk>', views.emp_delete, name='emp_delete'),
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
 ]

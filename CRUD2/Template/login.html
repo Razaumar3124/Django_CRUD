@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <style>
+        #id_email,#id_password{
+            width: 100%;
+            padding: 10px;
+        }
+        label,h1{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <main style="width: 100vw; height: 100vh; background: black; display: flex; justify-content: center; align-items: center; ">
+        <div style="width: 30%; height: 60%; border: 2px solid white; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <h1>Login</h1>
+            {% if msg %}
+                <div style="color: red; font-size: 20px;">{{msg}}</div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button style="width: 100%; background: green; color: white; padding: 10px; font-size: 20px;" type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

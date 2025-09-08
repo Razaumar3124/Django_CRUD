@@ -9,14 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Home</title>
     <style>
-        #id_firstname,#id_lastname,#id_mobile,#id_department,#id_email{
+        #id_firstname,#id_lastname,#id_mobile,#id_department,#id_email,#id_location,#id_password{
             width: 45%;
             padding: 10px;
         }
-        #id_email{
-            width: 95%;
 
-        }
     </style>
 </head>
 <body>
@@ -25,9 +22,14 @@
         <div class="col-md-10 offset-md-1 mt-5">
             <div class="jumbotron">
                 <h1 class="display-4">Employee Register</h1>
-                <p class="lead font-italic">
-                    Python-Django CRUD Project
-                </p>
+                <div class="lead font-italic d-flex justify-content-between">
+                    <p>
+                        Python-Django CRUD Project
+                    </p>
+                    <a href="{% url 'login' %}">
+                        <button class="rounded-2 bg-black text-white px-4 py-2">Login</button>
+                    </a>
+                </div>
                 <hr class="my-4">
                 {% block content %}
                 {% endblock content %}
