@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Department</th>
+            <th>
+                <a href="{% url 'emp_form' %}">
+                    <button class="btn bg-success btn-border text-white">
+                        Add New
+                    </button>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+            <tr>
+                <td>{{i.firstname}}</td>
+                <td>{{i.lastname}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.mobile}}</td>
+                <td>{{i.department}}</td>
+                <td>
+                    <a href="{% url 'emp_update' i.id %}"><i class="fa-regular fa-pen-to-square"></i></a>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'emp_delete' i.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="border-0 bg-white text-danger">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
